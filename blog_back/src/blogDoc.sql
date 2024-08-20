@@ -1,0 +1,17 @@
+CREATE DATABASE blog;
+USE blog;
+
+CREATE TABLE posteos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo VARCHAR(255) NOT NULL,
+     fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+contenido TEXT NOT NULL
+);
+
+CREATE TABLE comentarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    post_id INT NOT NULL,
+   comentario TEXT NOT NULL,
+    fecha DATETIME NOT NULL,
+    FOREIGN KEY (post_id) REFERENCES posteos(id) ON DELETE CASCADE
+);
